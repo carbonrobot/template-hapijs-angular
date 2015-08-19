@@ -1,0 +1,1 @@
+# Template for creating angularjs apps with hapi.js / node
