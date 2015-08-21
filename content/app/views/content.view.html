@@ -1,0 +1,23 @@
+<div class="container" data-ng-controller="DeviceController as dc">
+    <div class="form-container">
+        <form name="dc.updateDeviceForm">
+            <div class="form-group">
+                <label class="control-label">Device</label>
+                <select class="form-control" data-ng-options="d.name for d in dc.list" data-ng-model="dc.device"></select>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input type="text" class="form-control" data-ng-model="dc.device.name" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Content</label>
+                <textarea class="form-control" rows="5" data-ng-model="dc.device.content"></textarea>
+            </div>
+            <button type="button" class="btn btn-default" data-ng-disabled="!dc.updateDeviceForm.$dirty" data-ng-click="dc.update()">Update</button>
+            {{dc.statusMsg}}
+        </form>
+    </div>
+
+    <div class="form-output" data-ng-bind-html="dc.device.content"></div>
+</div>

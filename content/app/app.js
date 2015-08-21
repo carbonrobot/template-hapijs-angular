@@ -1,0 +1,1 @@
+﻿angular.module('sideshow', ['ngSanitize', 'ui.router']);

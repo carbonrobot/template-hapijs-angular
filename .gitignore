@@ -1,0 +1,30 @@
+##################
+# Project Specific
+##################
+
+# bower directory
+client/assets/lib
+content/assets/lib
+
+# build output folder
+public/*
+
+##################
+# node
+##################
+.nodemonignore
+npm-debug.log
+node_modules
+
+##################
+# various ide's
+##################
+.idea
+*.sublime-*
+*.suo
+*.user
+*.csproj
+*.sln
+*.GhostDoc.xml
+bin
+obj
