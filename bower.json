@@ -1,5 +1,5 @@
 {
-  "name": "BuoyData",
+  "name": "template-hapijs-angular",
   "version": "0.0.1",
   "dependencies": {
     "bootstrap": "~3",

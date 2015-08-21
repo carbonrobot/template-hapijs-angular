@@ -41,4 +41,4 @@ function DeviceController($http, $timeout) {
     })();
 }
 
-angular.module('sideshow').controller('DeviceController', DeviceController);
+angular.module('template-hapijs-angular').controller('DeviceController', DeviceController);

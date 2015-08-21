@@ -1,24 +1,15 @@
-##################
-# Project Specific
-##################
-
-# bower directory
-client/assets/lib
-content/assets/lib
-
-# build output folder
+# Build Output
 public/*
 
-##################
 # node
-##################
 .nodemonignore
 npm-debug.log
 node_modules
 
-##################
+# bower directory
+bower_assets
+
 # various ide's
-##################
 .idea
 *.sublime-*
 *.suo

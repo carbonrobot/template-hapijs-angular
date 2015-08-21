@@ -7,4 +7,4 @@
             templateUrl: 'content.view.html'
         });;
 };
-angular.module('sideshow').config(config);
+angular.module('template-hapijs-angular').config(config);

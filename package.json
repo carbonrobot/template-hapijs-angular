@@ -1,10 +1,10 @@
 {
   "author": "Charles Brown",
-  "name": "sideshow-web",
+  "name": "template-hapijs-angular",
   "version": "0.0.1",
   "homepage": "",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "postinstall": "gulp build"
   },
   "dependencies": {

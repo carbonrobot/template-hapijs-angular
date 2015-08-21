@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
@@ -8,7 +10,7 @@ var gulp = require('gulp'),
     bower = require('bower'),
     wrap = require('gulp-wrap'),
     ngannotate = require('gulp-ng-annotate'),
-    config = require('./config');
+    config = require('./gulpfile.config');
 
 // vendor scripts
 gulp.task('vendor', function() {
@@ -90,7 +92,7 @@ gulp.task('bower', function(cb){
 // default development
 gulp.task('default', ['build', 'watch'], function(){
 	nodemon({ 
-	    script: 'server.js',
+	    script: 'index.js',
         watch: 'server/*',
 		env: {NODE_ENV: 'development', DEBUG: true}
 	});

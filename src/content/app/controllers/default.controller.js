@@ -6,4 +6,4 @@ function DefaultController() {
     })();
 }
 
-angular.module('sideshow').controller('DefaultController', DefaultController);
+angular.module('template-hapijs-angular').controller('DefaultController', DefaultController);
