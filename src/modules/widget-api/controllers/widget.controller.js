@@ -1,7 +1,6 @@
 ﻿'use strict';
 
-var config = require('../config'),
-    mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 // stations api
 function WidgetController() {

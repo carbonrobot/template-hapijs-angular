@@ -17,26 +17,26 @@ gulp.task('vendor', function() {
     return gulp.src(config.assets.lib.js)
         .pipe(concat('vendor.min.js'))
         .pipe(uglify())
-		.pipe(gulp.dest('public/js'));
+		.pipe(gulp.dest(config.build.output.js));
 });
 
 // index page
 gulp.task('content', function () {
     return gulp.src(config.assets.content)
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest(config.build.output.content));
 });
 
 // styles
 gulp.task('styles', ['fonts'], function () {
     return gulp.src(config.assets.css)
         .pipe(concat('styles.css'))
-		.pipe(gulp.dest('public/css'));
+		.pipe(gulp.dest(config.build.output.css));
 });
 
 // fonts
 gulp.task('fonts', function () {
     return gulp.src(config.assets.fonts)
-		.pipe(gulp.dest('public/fonts'));
+		.pipe(gulp.dest(config.build.output.fonts));
 });
 
 // client scripts
@@ -48,20 +48,20 @@ gulp.task('scripts', function() {
         .pipe(concat('application.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public/js'));
+        .pipe(gulp.dest(config.build.output.js));
 });
 
 // partials
 gulp.task('templates', function() {
     return gulp.src(config.assets.views)
         .pipe(templateCache({ module: config.moduleName }))
-        .pipe(gulp.dest('public/js'));
+        .pipe(gulp.dest(config.build.output.js));
 });
 
 // images
 gulp.task('images', function() {
     return gulp.src(config.assets.img)
-    .pipe(gulp.dest('public/img'));
+    .pipe(gulp.dest(config.build.output.img));
 });
 
 // build
@@ -70,6 +70,7 @@ gulp.task('build', ['clean', 'bower'], function(){
 });
 
 // watch
+// TODO: these paths should be stored in the config file
 gulp.task('watch', function() {
     gulp.watch('content/assets/css/*.css', ['styles']);
     gulp.watch('content/**/*.js', ['scripts']);
@@ -78,7 +79,7 @@ gulp.task('watch', function() {
 
 // clean assets
 gulp.task('clean', function(cb) {
-    return del(['public/css', 'public/js'], cb);
+    return del(['public/*'], cb);
 });
 
 // bower
@@ -93,7 +94,8 @@ gulp.task('bower', function(cb){
 gulp.task('default', ['build', 'watch'], function(){
 	nodemon({ 
 	    script: 'index.js',
-        watch: 'server/*',
+        ext: 'js',
+        ignore: ['modules/widget-ui/*', 'public/*'],
 		env: {NODE_ENV: 'development', DEBUG: true}
 	});
 });

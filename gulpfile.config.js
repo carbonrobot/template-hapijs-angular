@@ -14,26 +14,35 @@ module.exports = {
                 'bower_assets/lodash/lodash.js'
             ]
         },
-        content: 'src/content/*.html',
+        content: 'src/modules/widget-ui/content/*.html',
         css: [
             'bower_assets/bootstrap/dist/css/bootstrap.css',
             'bower_assets/bootstrap/dist/css/bootstrap-theme.css',
-            'src/content/assets/css/*.css'
+            'src/modules/widget-ui/content/assets/css/*.css'
         ],
         fonts: [
             'bower_assets/bootstrap/dist/fonts/*'
         ],
         js: [
-            'src/content/app/app.js',
-            'src/content/app/app.routes.js',
-            'src/content/app/*/*.js'
+            'src/modules/widget-ui/content/app/app.js',
+            'src/modules/widget-ui/content/app/app.routes.js',
+            'src/modules/widget-ui/content/app/*/*.js'
         ],
-        views: 'src/content/app/views/*.html',
-        img: 'src/content/assets/img/**/*',
+        views: 'src/modules/widget-ui/content/app/views/*.html',
+        img: 'src/modules/widget-ui/content/assets/img/**/*',
         tests: [
             'bower_assets/angular-mocks/angular-mocks.js',
             'src/content/app/tests/*.js'
-        ]
+        ],
+    },
+    build: {
+        output: {
+            js: 'public/js',
+            img: 'public/img',
+            fonts: 'public/fonts',
+            css: 'public/css',
+            content: 'public'
+        }
     },
     moduleName: 'template-hapijs-angular'
 };
