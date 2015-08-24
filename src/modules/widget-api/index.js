@@ -4,20 +4,23 @@ var glob = require('glob'),
     path = require('path');
 
 exports.register = function(server, options, next){
-	// register routes
-    // TODO: is there a better place for this?
-    // TODO: don't use require, load json directly
-    glob('./routes/*.routes.js', { cwd: path.dirname(__filename) }, function(err, matches){
-        matches.forEach(function(filepath){
-            var routes = require(filepath);
-            server.route(routes);
-        });
-    });
 
-    // register data models
-    // TODO: is there a better place for this?
-    glob('./models/**/*.model.js', function(err, matches){
-        matches.forEach(require);
+    // require the mongoose plugin to be setup first
+    server.dependency('mongoose-plugin', function(server, next){}
+
+    	// register routes
+        glob('./routes/*.routes.js', { cwd: path.dirname(__filename) }, function(err, matches){
+            matches.forEach(function(filepath){
+                server.route(require(filepath));
+            });
+        });
+
+        // register data models
+        glob('./models/**/*.model.js', function(err, matches){
+            matches.forEach(require);
+        });
+
+        return next();
     });
 
     return next();

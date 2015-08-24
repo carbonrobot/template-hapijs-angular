@@ -45,6 +45,5 @@ exports.register = function(server, options, next){
 };
 
 exports.register.attributes = {
-	name: 'mongoose',
-	version: '0.0.1'
+    pkg: require('./package.json')
 };
