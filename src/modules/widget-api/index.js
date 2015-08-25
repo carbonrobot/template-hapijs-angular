@@ -6,7 +6,7 @@ var glob = require('glob'),
 exports.register = function(server, options, next){
 
     // require the mongoose plugin to be setup first
-    server.dependency('mongoose-plugin', function(server, next){}
+    server.dependency('mongoose-plugin', function(server, next){
 
     	// register routes
         glob('./routes/*.routes.js', { cwd: path.dirname(__filename) }, function(err, matches){
@@ -16,7 +16,7 @@ exports.register = function(server, options, next){
         });
 
         // register data models
-        glob('./models/**/*.model.js', function(err, matches){
+        glob('./models/**/*.model.js', { cwd: path.dirname(__filename) }, function(err, matches){
             matches.forEach(require);
         });
 

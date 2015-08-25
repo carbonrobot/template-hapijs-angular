@@ -14,6 +14,8 @@ module.exports = {
     		}
     	],
     	plugins: [
+            
+            // Registers the logging and process monitor
             {
                 'good': [
                     {
@@ -28,6 +30,13 @@ module.exports = {
                     }
                 ]
             },
+
+            // Registers the static content handler
+            {
+                'inert': null
+            },
+
+            // Registers the database handler
     		{
 	        	'./plugins/mongoose': [
                     {
@@ -38,6 +47,8 @@ module.exports = {
                     }
                 ]
 		    },
+
+            // Registers the REST api
 		    {
 		        './modules/widget-api': [
                     {
@@ -45,6 +56,8 @@ module.exports = {
                     }
                 ]
 		    },
+
+            // Registers the UI content server
 		    {
 		        './modules/widget-ui': [
                     {
