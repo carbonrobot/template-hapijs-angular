@@ -1,10 +1,15 @@
-﻿function config($stateProvider, $urlRouterProvider) {
+﻿angular.module('app').config(config);
+
+/**
+ * Configures the angular application
+ */
+function config($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('content', {
             url: '/',
-            templateUrl: 'content.view.html'
+            templateUrl: 'layout.view.html'
         });;
 };
-angular.module('template-hapijs-angular').config(config);
+

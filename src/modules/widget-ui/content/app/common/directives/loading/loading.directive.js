@@ -18,4 +18,4 @@ function loading() {
         template: template
     };
 }
-angular.module('template-hapijs-angular').directive('loading', loading);
+angular.module('app').directive('loading', loading);

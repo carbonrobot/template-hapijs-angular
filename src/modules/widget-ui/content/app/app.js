@@ -1,1 +1,0 @@
-﻿angular.module('template-hapijs-angular', ['ui.router']);
