@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+//var pkg = require('../modules/widget-api/package.json');
+
 // export server config settings
 // TODO: place each plugin config in its own file and merge
 module.exports = {
@@ -12,8 +14,16 @@ module.exports = {
     			port: process.env.PORT || 3001,
     			labels: ['web']
     		}
+            /*
+            {
+                port: 3030,
+                labels: ['docs']
+            }
+            */
     	],
     	plugins: [
+
+            // Register good for error logging, reporting
             {
                 'good': [
                     {
@@ -28,6 +38,8 @@ module.exports = {
                     }
                 ]
             },
+
+            // Register mongoose for data access
     		{
 	        	'./plugins/mongoose': [
                     {
@@ -38,6 +50,8 @@ module.exports = {
                     }
                 ]
 		    },
+
+            // Register the REST api
 		    {
 		        './modules/widget-api': [
                     {
@@ -45,6 +59,8 @@ module.exports = {
                     }
                 ]
 		    },
+
+            // Register the UI / Content
 		    {
 		        './modules/widget-ui': [
                     {
@@ -52,6 +68,26 @@ module.exports = {
                     }
                 ]
 		    }
+
+            // Enable Swagger to document the REST api
+            /*
+            {
+                'inert': null
+            },
+            {
+                'vision': null
+            },
+            {
+                'hapi-swagger': [
+                    {
+                        select: ['web'],
+                        options: {
+                            apiVersion: pkg.version
+                        }
+                    }
+                ]
+            }
+            */
     	]
     }
 };
