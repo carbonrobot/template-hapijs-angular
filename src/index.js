@@ -7,7 +7,7 @@ var options = {
     relativeTo: __dirname
 };
 
-// glue uses the manifest file to setup and run hapi for us
+// glue uses a manifest to configure and run hapi for us
 glue.compose(config.application, options, function(err, server){
     
     if(err) {

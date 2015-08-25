@@ -42,7 +42,7 @@ module.exports = {
             {
                 'inert': [
                     {
-                        select: ['web', 'api']
+                        select: ['api']
                     }
                 ]
             },
@@ -52,14 +52,14 @@ module.exports = {
             {
                 'vision': [
                     {
-                        select: ['web', 'api']
+                        select: ['api']
                     }
                 ]
             },
 
             // Registers the database handler
     		{
-	        	'./plugins/mongoose': [
+	        	'./modules/mongoose': [
                     {
                         select: ['api'],
                         options: {
@@ -89,28 +89,17 @@ module.exports = {
 
             // Register Swagger to document the REST api
             {
-                'hapi-swaggered': [
+                'hapi-swagger': [
                     {
                         select: ['api'],
                         options: {
                             info: {
                                 title: 'Api Documentation',
-                                description: 'REST API Documentation',
-                                version: pkg.version
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                'hapi-swaggered-ui': [
-                    {
-                        select: ['api'],
-                        options: {
-                            title: 'Api Documentation',
-                            swaggerOptions: {
-                                validatorUrl: null
-                            }
+                                description: 'REST API Documentation'
+                            },
+                            endpoint: '/swagger',
+                            documentationPath: '/docs',
+                            apiVersion: pkg.version
                         }
                     }
                 ]
