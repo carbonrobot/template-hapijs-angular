@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+//var pkg = require('../modules/widget-api/package.json');
+
 // export server config settings
 // TODO: place each plugin config in its own file and merge
 module.exports = {
@@ -12,6 +14,12 @@ module.exports = {
     			port: process.env.PORT || 3001,
     			labels: ['web']
     		}
+            /*
+            {
+                port: 3030,
+                labels: ['docs']
+            }
+            */
     	],
     	plugins: [
             
@@ -65,6 +73,21 @@ module.exports = {
                     }
                 ]
 		    }
+
+            // Enable Swagger to document the REST api
+            {
+                'vision': null
+            },
+            {
+                'hapi-swagger': [
+                    {
+                        select: ['web'],
+                        options: {
+                            apiVersion: pkg.version
+                        }
+                    }
+                ]
+            }
     	]
     }
 };
