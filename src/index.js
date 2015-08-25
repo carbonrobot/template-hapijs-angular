@@ -14,7 +14,6 @@ glue.compose(config.application, options, function(err, server){
         throw err;
     }
     server.start(function () {
-
         console.log('[node] server running at:', server.info.uri);
     });   
 });

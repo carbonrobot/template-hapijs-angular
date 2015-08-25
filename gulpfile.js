@@ -26,6 +26,12 @@ gulp.task('content', function () {
         .pipe(gulp.dest(config.build.output.content));
 });
 
+// api docs page
+gulp.task('docs', function () {
+    return gulp.src(config.assets.docs)
+        .pipe(gulp.dest(config.build.output.docs));
+});
+
 // styles
 gulp.task('styles', ['fonts'], function () {
     return gulp.src(config.assets.css)
@@ -66,7 +72,7 @@ gulp.task('images', function() {
 
 // build
 gulp.task('build', ['clean', 'bower'], function(){
-	return gulp.start('vendor', 'styles', 'templates', 'scripts', 'images', 'content');
+	return gulp.start('vendor', 'styles', 'templates', 'scripts', 'images', 'content', 'docs');
 });
 
 // watch

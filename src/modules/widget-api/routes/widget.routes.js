@@ -13,18 +13,16 @@ module.exports = [
         	notes: 'Returns an array of all widgets in the database.',
         	tags: ['api']
         }
-    }
-    /*
+    },
     {
     	method: 'POST',
     	path: '/widgets',
     	handler: controller.update,
-    	validate: validations.update,
     	config: {
         	description: 'Update a Widget',
         	notes: 'Updates and existing widget, or inserts a new one.',
-        	tags: ['api']
+        	tags: ['api'],
+            validate: validations.update
         }
     }
-    */
 ];

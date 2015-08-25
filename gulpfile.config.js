@@ -34,6 +34,7 @@ module.exports = {
             'bower_assets/angular-mocks/angular-mocks.js',
             'src/content/app/tests/*.js'
         ],
+        docs: 'src/modules/widget-api-docs/content/*.html'
     },
     build: {
         output: {
@@ -41,7 +42,8 @@ module.exports = {
             img: 'public/img',
             fonts: 'public/fonts',
             css: 'public/css',
-            content: 'public'
+            content: 'public',
+            docs: 'public/docs'
         }
     },
     moduleName: 'template-hapijs-angular'

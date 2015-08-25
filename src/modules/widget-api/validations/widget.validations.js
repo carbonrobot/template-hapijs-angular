@@ -2,7 +2,7 @@
 
 var Joi = require('joi');
 
-module.exports = [
+module.exports = {
 	
 	// update widget validations
 	update: {
@@ -10,4 +10,4 @@ module.exports = [
 			name: Joi.string().trim().min(3).max(100).required()
 		}
 	}
-];
+};
