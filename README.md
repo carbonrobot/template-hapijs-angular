@@ -6,24 +6,15 @@ The following is a template for creating projects with Hapi.js as the REST api a
 
 The following software must be installed for this template
 
-- Node.js & npm
+- [Download & Install](http://www.nodejs.org/download) Node.js and the npm package manager. If you encounter any problems, you can also use this Github Gist to install Node.js.
 
-	[Download & Install](http://www.nodejs.org/download) Node.js and the npm package manager.
-	If you encounter any problems, you can also use this Github Gist to install Node.js.
+- [Download & Install](http://www.mongodb.org/downloads) MongoDB and make sure it's running.
 
-- MongoDB
-
-    [Download & Install](http://www.mongodb.org/downloads) MongoDB and make sure it's running.
-
-- Bower
-
-    Install the [Bower Package Manager](http://bower.io/) using npm to manage frontend packages.
+- Install the [Bower Package Manager](http://bower.io/) using npm to manage frontend packages.
 
 		$ npm install -g bower
 
-- Gulp
-
-	Install the [Gulp]() build system for automating the development process.
+- Install the [Gulp](http://gulpjs.com/) build system for automating the development process.
 
 		$ npm install -g gulp
 
@@ -40,5 +31,4 @@ After the install process is complete, you will be able to run the application u
 		$ gulp
 
 Your application will run on port 3000 & 3001. Open a browser window to [http://localhost:3000](http://localhost:3000) to see the results.
-
 	
