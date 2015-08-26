@@ -6,14 +6,14 @@ var glob = require('glob'),
 exports.register = function(server, options, next){
 
 	// register routes
-    glob('./routes/*.routes.js', { cwd: path.dirname(__filename) }, function(err, matches){
+    glob('./server/routes/*.routes.js', { cwd: path.dirname(__filename) }, function(err, matches){
         matches.forEach(function(filepath){
             server.route(require(filepath));
         });
     });
 
     // register data models
-    glob('./models/**/*.model.js', { cwd: path.dirname(__filename) }, function(err, matches){
+    glob('./server/models/**/*.model.js', { cwd: path.dirname(__filename) }, function(err, matches){
         matches.forEach(require);
     });
 
