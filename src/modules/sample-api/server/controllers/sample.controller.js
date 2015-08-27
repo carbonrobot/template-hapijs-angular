@@ -2,8 +2,10 @@
 
 var mongoose = require('mongoose');
 
-// stations api
-function WidgetController() {
+/**
+ * A sample hapi.js controller
+ */
+function SampleController() {
 
 	return {
         list: list,
@@ -29,4 +31,4 @@ function WidgetController() {
     
 };
 
-module.exports = WidgetController();
+module.exports = SampleController();

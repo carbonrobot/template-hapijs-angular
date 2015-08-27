@@ -14,12 +14,17 @@ var gulp = require('gulp'),
     KarmaServer = require('karma').Server;
 
 // tasks
-gulp.task('default', ['build', 'watch', 'test-monitor'], startDevMode);
+gulp.task('default', ['build', 'watch'], startDevMode);
 gulp.task('build', ['clean', 'bower'], build);
 gulp.task('watch', watch);
 gulp.task('clean', cleanBuildFiles);
 gulp.task('bower', downloadPackages);
-gulp.task('test', test);
+gulp.task('test', function(done){
+    test(false, done);
+});
+gulp.task('test-watch', function(done){
+    test(true, done);
+});
 
 // components
 gulp.task('vendor', vendor);
@@ -30,8 +35,8 @@ gulp.task('content', content);
 gulp.task('styles', ['fonts'], styles);
 gulp.task('fonts', fonts);
 
-function build(done){
-    return gulp.start('vendor', 'styles', 'templates', 'scripts', 'images', 'content');
+function build(){
+    gulp.start('vendor', 'styles', 'templates', 'scripts', 'images', 'content');
 }
 
 function content() {
@@ -40,7 +45,7 @@ function content() {
 }
 
 function cleanBuildFiles(done){
-    return del(['public/*'], done);
+    del(['public/*'], done);
 }
 
 function downloadPackages(done){
@@ -75,7 +80,7 @@ function startDevMode(){
     nodemon({ 
         script: 'index.js',
         ext: 'js',
-        ignore: ['modules/widget-ui/*', 'public/*'],
+        ignore: ['src/modules/sample-ui/*', 'public/*'],
         env: {NODE_ENV: 'development', DEBUG: true}
     });
 }
@@ -88,16 +93,15 @@ function styles() {
 
 function templates() {
     return gulp.src(config.assets.views)
-        .pipe(templateCache({ module: config.moduleName }))
+        .pipe(templateCache({ module: config.templateModuleName }))
         .pipe(gulp.dest(config.build.output.js));
 }
 
-function test(done){
+function test(watch, done){
     new KarmaServer({
         configFile: __dirname + '/karma.conf.js',
-        singleRun: true,
-        autoWatch: false,
-        reporters: ['progress']
+        singleRun: !watch,
+        autoWatch: watch
     }, function(exitcode){
         done();
         process.exit(exitcode);
@@ -113,7 +117,7 @@ function vendor() {
 
 function watch(){
     // TODO: these paths should be stored in the config file
-    gulp.watch('content/assets/css/*.css', ['styles']);
-    gulp.watch('content/**/*.js', ['scripts']);
-    gulp.watch('content/**/*.html', ['templates', 'content']);
+    gulp.watch('src/**/*.less', ['styles']);
+    gulp.watch('src/**/*.js', ['scripts']);
+    gulp.watch('src/**/*.html', ['templates', 'content']);
 }

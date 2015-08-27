@@ -1,7 +1,5 @@
 ﻿'use strict';
 
-var pkg = require('../modules/widget-api/package.json');
-
 // export server config settings
 // TODO: place each plugin config in its own file and merge
 module.exports = {
@@ -99,7 +97,7 @@ module.exports = {
                             },
                             endpoint: '/swagger',
                             documentationPath: '/docs',
-                            apiVersion: pkg.version
+                            apiVersion: require('../modules/sample-api/package.json').version
                         }
                     }
                 ]

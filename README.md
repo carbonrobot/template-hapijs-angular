@@ -44,6 +44,10 @@ Gulp will monitor all files for changes and recompile whenever a change is detec
 
 To start the Karma test runner, execute the following in a **separate** bash window.
 
-		$ karma start
+		$ gulp test-watch
 
 Karma will launch a browser window and begin tracking all test files for changes. Whenever a spec changes, Karma will rerun the tests. To see the test results, click on the *debug* button in the test browser window. Leave this window open during javascript development. To exit Karma, use `ctrl-c` in the bash window you are running Karma from.
+
+To invoke a single test run without file monitoring, execute the following command.
+
+		$ gulp test

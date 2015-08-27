@@ -1,9 +1,9 @@
-angular.module('app').controller('LayoutController', LayoutController);
+angular.module('app').controller('DefaultController', DefaultController);
 
 /**
  * Handles the layout for the application
  */
-function LayoutController() {
+function DefaultController() {
     var vm = this;
 
     

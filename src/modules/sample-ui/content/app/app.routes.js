@@ -9,7 +9,7 @@ function config($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('content', {
             url: '/',
-            templateUrl: 'layout.view.html'
+            templateUrl: 'default/views/default.view.html'
         });;
 };
 

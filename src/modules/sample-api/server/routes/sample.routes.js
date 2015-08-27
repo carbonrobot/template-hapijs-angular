@@ -1,7 +1,7 @@
 "use strict";
 
-var controller = require('../controllers/widget.controller'),
-	validations = require('../validations/widget.validations.js');
+var controller = require('../controllers/sample.controller'),
+	validations = require('../validations/sample.validations.js');
 
 module.exports = [
     {
@@ -20,7 +20,7 @@ module.exports = [
     	handler: controller.update,
     	config: {
         	description: 'Update a Widget',
-        	notes: 'Updates and existing widget, or inserts a new one.',
+        	notes: 'Updates an existing widget, or inserts a new one.',
         	tags: ['api'],
             validate: validations.update
         }
