@@ -51,3 +51,7 @@ Karma will launch a browser window and begin tracking all test files for changes
 To invoke a single test run without file monitoring, execute the following command.
 
 		$ gulp test
+
+## API Testing
+
+The REST Api documentation can be found at [http://localhost:3001/docs](http://localhost:3001/docs) and uses Swagger for testing and documentation.
