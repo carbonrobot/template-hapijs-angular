@@ -59,7 +59,7 @@ module.exports = {
 
             // Registers the database handler
     		{
-	        	'./modules/mongoose': [
+	        	'./modules/mongoose-config': [
                     {
                         select: ['api'],
                         options: {
@@ -71,7 +71,7 @@ module.exports = {
 
             // Registers the UI content server
             {
-                './modules/widget-ui': [
+                './modules/sample-ui': [
                     {
                         select: ['web']
                     }
@@ -80,7 +80,7 @@ module.exports = {
 
             // Registers the REST api
 		    {
-		        './modules/widget-api': [
+		        './modules/sample-api': [
                     {
                         select: ['api']
                     }

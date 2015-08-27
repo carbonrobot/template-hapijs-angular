@@ -1,5 +1,5 @@
 {
-  "name": "widget-ui",
+  "name": "sample-ui",
   "version": "0.0.1",
   "dependencies": ["inert", "vision"]
 }

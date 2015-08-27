@@ -18,6 +18,10 @@ The following software must be installed for this template
 
 		$ npm install -g gulp
 
+- Install the [Karma](http://karma-runner.github.io/0.13/index.html) test runner for automated javascript testing
+
+		$ npm install -g karma-cli
+
 ##  Running the Application
 
 Once you've installed the prerequisites and cloned the repository using `git`, you're ready to get started.
@@ -31,4 +35,15 @@ After the install process is complete, you will be able to run the application u
 		$ gulp
 
 Your application will run on port 3000 & 3001. Open a browser window to [http://localhost:3000](http://localhost:3000) to see the results.
-	
+
+### File Changes
+
+Gulp will monitor all files for changes and recompile whenever a change is detected.
+
+## Javascript Testing
+
+To start the Karma test runner, execute the following in a **separate** bash window.
+
+		$ karma start
+
+Karma will launch a browser window and begin tracking all test files for changes. Whenever a spec changes, Karma will rerun the tests. To see the test results, click on the *debug* button in the test browser window. Leave this window open during javascript development. To exit Karma, use `ctrl-c` in the bash window you are running Karma from.

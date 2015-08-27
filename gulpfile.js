@@ -11,14 +11,15 @@ var gulp = require('gulp'),
     wrap = require('gulp-wrap'),
     ngannotate = require('gulp-ng-annotate'),
     config = require('./gulpfile.config'),
-    run = require('run-sequence');
+    KarmaServer = require('karma').Server;
 
 // tasks
-gulp.task('default', ['build', 'watch'], startDevMode);
+gulp.task('default', ['build', 'watch', 'test-monitor'], startDevMode);
 gulp.task('build', ['clean', 'bower'], build);
 gulp.task('watch', watch);
 gulp.task('clean', cleanBuildFiles);
 gulp.task('bower', downloadPackages);
+gulp.task('test', test);
 
 // components
 gulp.task('vendor', vendor);
@@ -27,8 +28,9 @@ gulp.task('scripts', scripts);
 gulp.task('images', images);
 gulp.task('content', content);
 gulp.task('styles', ['fonts'], styles);
+gulp.task('fonts', fonts);
 
-function build(cb){
+function build(done){
     return gulp.start('vendor', 'styles', 'templates', 'scripts', 'images', 'content');
 }
 
@@ -37,14 +39,14 @@ function content() {
         .pipe(gulp.dest(config.build.output.content));
 }
 
-function cleanBuildFiles(cb){
-    return del(['public/*'], cb);
+function cleanBuildFiles(done){
+    return del(['public/*'], done);
 }
 
-function downloadPackages(cb){
+function downloadPackages(done){
     bower.commands.install([], {save: true}, {})
     .on('end', function(installed){
-      cb();
+      done();
     });
 }
 
@@ -82,12 +84,24 @@ function styles() {
     return gulp.src(config.assets.css)
         .pipe(concat('styles.css'))
         .pipe(gulp.dest(config.build.output.css));
-};
+}
 
 function templates() {
     return gulp.src(config.assets.views)
         .pipe(templateCache({ module: config.moduleName }))
         .pipe(gulp.dest(config.build.output.js));
+}
+
+function test(done){
+    new KarmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true,
+        autoWatch: false,
+        reporters: ['progress']
+    }, function(exitcode){
+        done();
+        process.exit(exitcode);
+    }).start();
 }
 
 function vendor() {
