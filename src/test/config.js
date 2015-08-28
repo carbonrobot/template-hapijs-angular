@@ -1,3 +1,4 @@
+/*
 var tests = [];
 for (var file in window.__karma__.files) {
     if (window.__karma__.files.hasOwnProperty(file)) {
@@ -13,7 +14,7 @@ requirejs.config({
 
     // paths: maps ids with paths (no extension)
     paths: {
-        'hapi': ['index']
+        
     },
 
     // shim: makes external libraries compatible with requirejs (AMD)
@@ -25,5 +26,8 @@ requirejs.config({
     deps: tests,
 
     // after require.js loads tests, start karma
-    callback: window.__karma__.start
+    callback: function(){
+    	console.log('Done!');
+    }
 });
+*/

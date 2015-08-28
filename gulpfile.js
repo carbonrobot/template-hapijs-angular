@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     jshint = require('gulp-jshint'),
     config = require('./gulpfile.config'),
+    jasmine = require('gulp-jasmine'),
     KarmaServer = require('karma').Server;
 
 // tasks
@@ -21,12 +22,8 @@ gulp.task('build', ['clean', 'bower'], build);
 gulp.task('watch', watch);
 gulp.task('clean', cleanBuildFiles);
 gulp.task('bower', downloadPackages);
-gulp.task('test', function(done){
-    test(false, done);
-});
-gulp.task('test-watch', function(done){
-    test(true, done);
-});
+gulp.task('test:ui', testUi);
+gulp.task('test:api', testApi);
 
 // components
 gulp.task('vendor', vendor);
@@ -104,15 +101,22 @@ function templates() {
         .pipe(gulp.dest(config.build.output.js));
 }
 
-function test(watch, done){
+function testUi(done){
     new KarmaServer({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: !watch,
-        autoWatch: watch
+        configFile: __dirname + '/karma.conf.js'
     }, function(exitcode){
         done();
         process.exit(exitcode);
     }).start();
+}
+
+function testApi(done){
+    return gulp.src([
+            'src/modules/sample-api/test/**/*.spec.js'
+        ])
+        .pipe(jasmine({
+            verbose: true
+        }));
 }
 
 function vendor() {
