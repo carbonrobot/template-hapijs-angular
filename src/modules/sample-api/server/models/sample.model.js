@@ -6,8 +6,7 @@ var widgetSchema = mongoose.Schema({
 		required: 'Widget name is required'
 	},
 	content: {
-		type: String,
-		required: 'Content is required'
+		type: String
 	}
 });
 mongoose.model('Widget', widgetSchema);

@@ -31,8 +31,10 @@ function SampleController() {
         var widget = new WidgetModel(request.payload);
         widget.save(function(err){
             if(err){
-                return reply(Boom.)
+                return reply(Boom.badImplementation('There was an internal error.', err));
             }
+
+            return reply(widget);
         });
     }
     

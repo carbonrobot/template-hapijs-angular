@@ -14,7 +14,14 @@ module.exports = {
         	},
             {
                 port: process.env.API_PORT || 3001,
-                labels: ['api']
+                labels: ['api'],
+                routes: {
+                    validate: {
+                        options: {
+                            allowUnknown: true
+                        }
+                    }
+                }
             }
         ],
     	plugins: [

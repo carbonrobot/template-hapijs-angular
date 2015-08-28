@@ -19,7 +19,8 @@
     "hapi-swagger": "^1.1.1",
     "inert": "^3.0.1",
     "vision": "^3.0.0",
-    "joi": "^6.6.1"
+    "joi": "^6.6.1",
+    "boom": "^2.8.0"
   },
   "devDependencies": {
     "bower": "^1.5.1",
@@ -44,6 +45,8 @@
     "karma-jasmine-html-reporter": "^0.1.8",
     "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.0.1",
+    "requirejs": "^2.1.20",
+    "karma-requirejs": "^0.2.2"
   }
 }

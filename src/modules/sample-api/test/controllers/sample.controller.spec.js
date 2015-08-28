@@ -1,9 +1,13 @@
-describe("Api Controller Tests", function(){
+define(['hapi'], function(server){
 
-	describe("Sample Controller", function(){
+	describe('Sample Controller', function(){
 
-		it("Should be ok", function(){
-			expect(true).toBe(true);
+		it('Should list all widgets and respond with 200 OK', function(){
+			var options = {
+				method: 'GET',
+				url: '/widgets'
+			};
+
 		});
 
 	});
