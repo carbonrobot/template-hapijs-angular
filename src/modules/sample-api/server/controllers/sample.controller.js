@@ -1,6 +1,7 @@
 ﻿'use strict';
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Boom = require('boom');
 
 /**
  * A sample hapi.js controller
@@ -26,7 +27,13 @@ function SampleController() {
      * Updates a single widget
      */
     function update(request, reply){
-    	return reply();
+    	var WidgetModel = mongoose.model('Widget');
+        var widget = new WidgetModel(request.payload);
+        widget.save(function(err){
+            if(err){
+                return reply(Boom.)
+            }
+        });
     }
     
 };

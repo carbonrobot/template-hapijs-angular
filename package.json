@@ -41,6 +41,9 @@
     "karma": "^0.13.9",
     "phantomjs": "^1.9.18",
     "karma-phantomjs-launcher": "^0.2.1",
-    "karma-jasmine-html-reporter": "^0.1.8"
+    "karma-jasmine-html-reporter": "^0.1.8",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "jshint-stylish": "^2.0.1"
   }
 }

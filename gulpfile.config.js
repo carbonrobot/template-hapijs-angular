@@ -18,7 +18,7 @@ module.exports = {
         css: [
             'bower_assets/bootstrap/dist/css/bootstrap.css',
             'bower_assets/bootstrap/dist/css/bootstrap-theme.css',
-            'src/modules/sample-ui/content/assets/css/*.css'
+            'src/modules/sample-ui/content/**/*.less'
         ],
         fonts: [
             'bower_assets/bootstrap/dist/fonts/*'

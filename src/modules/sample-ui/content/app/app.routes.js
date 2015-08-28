@@ -10,6 +10,6 @@ function config($stateProvider, $urlRouterProvider) {
         .state('content', {
             url: '/',
             templateUrl: 'default/views/default.view.html'
-        });;
-};
+        });
+}
 

@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     bower = require('bower'),
     wrap = require('gulp-wrap'),
     ngannotate = require('gulp-ng-annotate'),
+    less = require('gulp-less'),
+    jshint = require('gulp-jshint'),
     config = require('./gulpfile.config'),
     KarmaServer = require('karma').Server;
 
@@ -67,8 +69,10 @@ function fonts() {
 
 function scripts() {
     return gulp.src(config.assets.js)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'))
         .pipe(ngannotate())
-        .pipe(wrap('(function(angular){\n"use strict";\n<%= contents %>\n})(window.angular);'))
+        .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>\n})(window.angular);'))
         .pipe(sourcemaps.init())
         .pipe(concat('application.min.js'))
         .pipe(uglify())
@@ -87,7 +91,10 @@ function startDevMode(){
 
 function styles() {
     return gulp.src(config.assets.css)
+        .pipe(sourcemaps.init())
+        .pipe(less())
         .pipe(concat('styles.css'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.build.output.css));
 }
 
