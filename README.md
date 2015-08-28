@@ -32,9 +32,13 @@ To install the node modules and bower packages, run the following command line f
 
 After the install process is complete, you will be able to run the application using Gulp.
 
-		$ gulp
+		$ gulp serve
 
-Your application will run on port 3000 & 3001. Open a browser window to [http://localhost:3000](http://localhost:3000) to see the results.
+Your application will run on port 3000 & 3001. Open a browser window to [http://localhost:3000](http://localhost:3000) to see the results. The gulp `serve` task will first compile the application before starting the server.
+
+If you want to build the application without running it, you can execute the following command.
+
+		$ gulp build
 
 ### File Changes
 
@@ -42,15 +46,35 @@ Gulp will monitor all files for changes and recompile whenever a change is detec
 
 ## Javascript Testing
 
-To start the Karma test runner, execute the following in a **separate** bash window.
+This template uses Jasmine as a testing framework and executes the front end tests using Karma.
 
-		$ gulp test-watch
+### Api Testing
+
+To start the tests for the api javascript code, execute the following command.
+
+		$ gulp test:api
+
+The test runner for node does not exit automatically, so you will need to exit when complete using CTRL^C.
+
+### Angular Testing
+
+To start the Karma test runner for front end javascript code, execute the following command.
+
+		$ gulp test:ui:watch
 
 Karma will launch a browser window and begin tracking all test files for changes. Whenever a spec changes, Karma will rerun the tests. To see the test results, click on the *debug* button in the test browser window. Leave this window open during javascript development. To exit Karma, use `ctrl-c` in the bash window you are running Karma from.
 
-To invoke a single test run without file monitoring, execute the following command.
+To start single test run and exit when complete, execute the following command.
 
-		$ gulp test
+		$ gulp test:ui:single
+
+Karma will launch a browser window and run the unit tests for the front end code and exit when its complete.
+
+### End to End Testing
+
+The end to end tests are run using Protractor.
+
+// Coming Soon.
 
 ## API Testing
 

@@ -17,13 +17,19 @@ var gulp = require('gulp'),
     KarmaServer = require('karma').Server;
 
 // tasks
-gulp.task('default', ['build', 'watch'], startDevMode);
+gulp.task('default', ['build']);
+gulp.task('serve', ['build', 'watch'], startDevMode);
 gulp.task('build', ['clean', 'bower'], build);
 gulp.task('watch', watch);
 gulp.task('clean', cleanBuildFiles);
 gulp.task('bower', downloadPackages);
-gulp.task('test:ui', testUi);
 gulp.task('test:api', testApi);
+gulp.task('test:ui', function(done){
+    testUi(true, done);
+});
+gulp.task('test:ui:single', function(done){
+    testUi(false, done);
+});
 
 // components
 gulp.task('vendor', vendor);
@@ -101,9 +107,11 @@ function templates() {
         .pipe(gulp.dest(config.build.output.js));
 }
 
-function testUi(done){
+function testUi(watch, done){
     new KarmaServer({
-        configFile: __dirname + '/karma.conf.js'
+        configFile: __dirname + '/karma.conf.js',
+        autoWatch: watch,
+        singleRun: !watch
     }, function(exitcode){
         done();
         process.exit(exitcode);
@@ -114,9 +122,7 @@ function testApi(done){
     return gulp.src([
             'src/modules/sample-api/test/**/*.spec.js'
         ])
-        .pipe(jasmine({
-            verbose: true
-        }));
+        .pipe(jasmine());
 }
 
 function vendor() {

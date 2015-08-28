@@ -4,28 +4,27 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: './',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-        //'node_modules/jasmine-core/lib/*.js',
-        //'node_modules/karma-jasmine/lib/*.js',
-        'node_modules/requirejs/require.js',
-        'node_modules/karma-requirejs/lib/adapter.js',
-
-        // load the require.js shim file so that we can use require.js in our tests
-        'src/test/config.js',
-
-        // load the paths into karma, but exclude everything so that require.js can load them
-        { pattern: 'src/**/*.js', included: false }
+        'bower_components/angular/angular.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'src/modules/sample-ui/content/app/app.module.js',
+        'src/modules/sample-ui/content/app/app.routes.js',
+        'src/modules/sample-ui/content/app/app.startup.js',
+        'src/modules/sample-ui/**/*.js',
+        'src/modules/sample-ui/**/*.spec.js'
     ],
 
     // list of files to exclude
     exclude: [
+        'src/modules/sample-ui/index.js'
     ],
 
     // preprocess matching files before serving them to the browser

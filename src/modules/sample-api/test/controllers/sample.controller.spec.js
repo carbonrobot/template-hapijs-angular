@@ -1,13 +1,9 @@
 describe('api', function(){
 
-	var Hapi = require('hapi'),
-		server;
+	var server;
 
-	beforeAll(function(){
-		server = new Hapi.Server();
-		server.connection({port: 8753});
-
-		// server register any plugins needed
+	beforeAll(function(done){
+		server = require('../config.js').createServer(done);
 	});
 
 	describe('sample.controller', function(){
