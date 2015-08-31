@@ -12,10 +12,10 @@ var gulp = require('gulp'),
     ngannotate = require('gulp-ng-annotate'),
     less = require('gulp-less'),
     jshint = require('gulp-jshint'),
-    config = require('./gulpfile.config'),
     jasmine = require('gulp-jasmine'),
     runSequence = require('run-sequence'),
-    KarmaServer = require('karma').Server;
+    KarmaServer = require('karma').Server,
+    config = require('./gulpfile.config');
 
 // tasks
 gulp.task('default', ['serve']);
@@ -77,17 +77,17 @@ function clean(done){
 }
 
 function content() {
-    return gulp.src(config.assets.content)
+    return gulp.src(config.src.content)
         .pipe(gulp.dest(config.build.output.content));
 }
 
 function fonts() {
-    return gulp.src(config.assets.fonts)
+    return gulp.src(config.src.fonts)
         .pipe(gulp.dest(config.build.output.fonts));
 }
 
 function images() {
-    return gulp.src(config.assets.img)
+    return gulp.src(config.src.img)
     .pipe(gulp.dest(config.build.output.img));
 }
 
@@ -101,11 +101,11 @@ function run(){
 }
 
 function scripts() {
-    return gulp.src(config.assets.js)
+    return gulp.src(config.src.js.app)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(ngannotate())
-        .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>\n})(window.angular);'))
+        .pipe(wrap('(function(angular){\n<%= contents %>\n})(window.angular);'))
         .pipe(sourcemaps.init())
         .pipe(concat('application.min.js'))
         .pipe(uglify())
@@ -114,7 +114,7 @@ function scripts() {
 }
 
 function styles() {
-    return gulp.src(config.assets.css)
+    return gulp.src(config.src.css)
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(concat('styles.css'))
@@ -123,13 +123,13 @@ function styles() {
 }
 
 function templates() {
-    return gulp.src(config.assets.views)
-        .pipe(templateCache({ module: config.templateModuleName }))
+    return gulp.src(config.src.templates)
+        .pipe(templateCache({ module: config.src.templateModuleName }))
         .pipe(gulp.dest(config.build.output.js));
 }
 
 function vendor() {
-    return gulp.src(config.assets.lib.js)
+    return gulp.src(config.src.js.vendor)
         .pipe(concat('vendor.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(config.build.output.js));
