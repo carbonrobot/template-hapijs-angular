@@ -87,8 +87,8 @@ function fonts() {
 }
 
 function images() {
-    return gulp.src(config.src.img)
-    .pipe(gulp.dest(config.build.output.img));
+    return gulp.src(config.src.img, { base: './src/modules/sample-ui/content' })
+    .pipe(gulp.dest(config.build.output.content));
 }
 
 function run(){

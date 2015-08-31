@@ -21,7 +21,7 @@ module.exports = {
         ],
 
         // images
-        img: 'src/modules/sample-ui/content/assets/img/**/*',
+        img: 'src/modules/sample-ui/content/**/*.*(png|jpg|gif)',
 
         // javascript files
         js: {
@@ -39,15 +39,15 @@ module.exports = {
 
             // application files are separate, because they get linted
             app: [
-                'src/modules/sample-ui/content/app/app.module.js',
-                'src/modules/sample-ui/content/app/app.startup.js',
-                'src/modules/sample-ui/content/app/app.routes.js',
-                'src/modules/sample-ui/content/app/**/*.js'
+                'src/modules/sample-ui/app/app.module.js',
+                'src/modules/sample-ui/app/app.startup.js',
+                'src/modules/sample-ui/app/app.routes.js',
+                'src/modules/sample-ui/app/**/*.js'
             ]
         },
 
         // angular templates
-        templates: 'src/modules/sample-ui/content/app/**/*.view.html',
+        templates: 'src/modules/sample-ui/app/**/*.view.html',
         templateModuleName: 'app.templates'
     },
 
@@ -55,11 +55,10 @@ module.exports = {
     build: {
 
         output: {
-            js: 'public/js',
-            img: 'public/img',
+            content: 'public',
             fonts: 'public/fonts',
-            css: 'public/css',
-            content: 'public'
+            js: 'public/js',
+            css: 'public/styles'
         }
         
     },
