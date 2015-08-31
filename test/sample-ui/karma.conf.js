@@ -4,7 +4,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: './',
+    basePath: '../../',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -19,7 +19,7 @@ module.exports = function(config) {
         'src/modules/sample-ui/content/app/app.routes.js',
         'src/modules/sample-ui/content/app/app.startup.js',
         'src/modules/sample-ui/**/*.js',
-        'src/modules/sample-ui/**/*.spec.js'
+        'test/sample-ui/**/*.spec.js'
     ],
 
     // list of files to exclude

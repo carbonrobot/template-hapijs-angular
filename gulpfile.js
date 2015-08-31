@@ -109,7 +109,7 @@ function templates() {
 
 function testUi(watch, done){
     new KarmaServer({
-        configFile: __dirname + '/karma.conf.js',
+        configFile: __dirname + '/test/sample-ui/karma.conf.js',
         autoWatch: watch,
         singleRun: !watch
     }, function(exitcode){
@@ -120,7 +120,7 @@ function testUi(watch, done){
 
 function testApi(done){
     return gulp.src([
-            'src/modules/sample-api/test/**/*.spec.js'
+            'test/sample-api/**/*.spec.js'
         ])
         .pipe(jasmine());
 }

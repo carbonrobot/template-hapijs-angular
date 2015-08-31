@@ -3,7 +3,7 @@ describe('api', function(){
 	var server;
 
 	beforeAll(function(done){
-		server = require('../config.js').createServer(done);
+		server = require('../mockserver.js').createServer(done);
 	});
 
 	describe('sample.controller', function(){

@@ -2,7 +2,7 @@
 
 var Hapi = require('hapi'),
 	mongoose = require('mongoose'),
-	api = require('../index.js');
+	api = require('../../src/modules/sample-api/index.js');
 
 module.exports.createServer = function(done){
 	mongoose.connect('mongodb://localhost/dev');
