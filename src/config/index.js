@@ -9,12 +9,12 @@ module.exports = {
         connections: [
         	{
         		port: process.env.WEB_PORT || 3000,
-        		labels: ['web']
-                /*routes: {
+        		labels: ['web'],
+                routes: {
                     files: {
-                        relativeTo: Path.join(__dirname, './public')
+                        relativeTo: Path.join(__dirname, '../../public')
                     }
-                }*/
+                }
         	},
             {
                 port: process.env.API_PORT || 3001,
@@ -61,7 +61,20 @@ module.exports = {
             {
                 'vision': [
                     {
-                        select: ['api']
+                        select: ['api', 'web']
+                    }
+                ]
+            },
+            {
+                'visionary': [
+                    {
+                        select: ['web'],
+                        options: {
+                            engines: {
+                                html: 'handlebars'
+                            },
+                            path: Path.join(__dirname, '../../public')
+                        }
                     }
                 ]
             },

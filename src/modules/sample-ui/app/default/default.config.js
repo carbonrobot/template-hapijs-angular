@@ -7,8 +7,8 @@ angular.module('app.default').config(config);
  */
 function config($stateProvider) {
     $stateProvider
-        .state('content', {
-            url: '/',
+        .state('default', {
+        	url: '/',
             templateUrl: 'default/views/default.view.html'
         });
 }
