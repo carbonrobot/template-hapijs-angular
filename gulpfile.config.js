@@ -39,9 +39,6 @@ module.exports = {
 
             // application files are separate, because they get linted
             app: [
-                'src/modules/sample-ui/app/app.module.js',
-                'src/modules/sample-ui/app/app.config.js',
-                'src/modules/sample-ui/app/app.startup.js',
                 'src/modules/sample-ui/app/**/*.module.js',
                 'src/modules/sample-ui/app/**/*.js'
             ]
