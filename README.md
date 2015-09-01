@@ -60,15 +60,9 @@ The test runner for node does not exit automatically, so you will need to exit w
 
 To start the Karma test runner for front end javascript code, execute the following command.
 
-		$ gulp test:ui:watch
+		$ gulp test:ui
 
 Karma will launch a browser window and begin tracking all test files for changes. Whenever a spec changes, Karma will rerun the tests. To see the test results, click on the *debug* button in the test browser window. Leave this window open during javascript development. To exit Karma, use `ctrl-c` in the bash window you are running Karma from.
-
-To start single test run and exit when complete, execute the following command.
-
-		$ gulp test:ui:single
-
-Karma will launch a browser window and run the unit tests for the front end code and exit when its complete.
 
 ### End to End Testing
 
