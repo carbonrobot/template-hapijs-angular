@@ -5,12 +5,8 @@ module.exports = {
     // source file paths
     src: {
         
-        // vendor and application css/less
-        css: [
-            'bower_components/bootstrap/dist/css/bootstrap.css',
-            'bower_components/bootstrap/dist/css/bootstrap-theme.css',
-            'src/modules/sample-ui/content/**/index.less'
-        ],
+        // application less files
+        less: 'src/modules/sample-ui/content/**/index.less',
 
         // html content
         content: 'src/modules/sample-ui/content/*.html',

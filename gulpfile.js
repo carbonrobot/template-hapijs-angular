@@ -116,16 +116,21 @@ function scripts() {
 }
 
 function styles() {
-    return gulp.src(config.src.css)
+    return gulp.src(config.src.less)
         .pipe(sourcemaps.init())
-        .pipe(less())
+        .pipe(less({
+            paths: [
+                // Allows us to @import anything in the bower folder in less files using relative paths
+                path.join(__dirname, 'bower_components')
+            ]
+        }))
         .pipe(rename(function(file){
-            var parts = file.dirname.split(path.sep);
-            file.basename = parts[1] || 'styles';
-            file.dirname = '';
+            // flatten folders and rename to styles.css
+            file.dirname = file.dirname.replace(path.sep + 'styles', '');
+            file.basename = 'styles';
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.build.output.css));
+        .pipe(gulp.dest(config.build.output.content));
 }
 
 function templates() {
@@ -142,7 +147,6 @@ function vendor() {
 }
 
 function watch(){
-    // TODO: these paths should be stored in the config file
     gulp.watch('src/**/*.less', ['styles']);
     gulp.watch('src/**/*.js', ['scripts']);
     gulp.watch('src/**/*.html', ['templates', 'content']);
