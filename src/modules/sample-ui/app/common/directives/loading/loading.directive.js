@@ -18,4 +18,4 @@ function loading() {
         template: template
     };
 }
-angular.module('app').directive('loading', loading);
+angular.module('app.common').directive('loading', loading);

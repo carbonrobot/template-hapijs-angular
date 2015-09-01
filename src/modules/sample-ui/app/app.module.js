@@ -1,8 +1,14 @@
-﻿angular.module('app.templates', []);
+﻿'use strict';
 
+// placeholder for compiled view templates
+angular.module('app.templates', []);
+
+// main application module
 angular.module('app', [
 	'ui.router', 
 	'app.templates',
+	'app.common',
 	'app.default',
-	'app.signup'
+	'app.signup',
+	'app.about'
 	]);
