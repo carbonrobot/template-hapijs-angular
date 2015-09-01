@@ -95,7 +95,7 @@ function run(){
     nodemon({ 
         script: 'index.js',
         ext: 'js',
-        ignore: ['src/modules/sample-ui/*', 'public/*'],
+        ignore: ['public/*'],
         env: {NODE_ENV: 'development', DEBUG: true}
     });
 }

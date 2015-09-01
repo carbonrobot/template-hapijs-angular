@@ -5,13 +5,22 @@ exports.register = function(server, options, next){
     // register route to serve static content
     server.route({
         method: 'GET',
-        path: '/{path*}',
+        path: '/public/{path*}',
         handler : {
             directory: {
                 path: 'public',
                 listing: false,
-                index: true
+                index: false
             }
+        }
+    });
+
+    // register route to serve index file
+    server.route({
+        method: 'GET',
+        path: '/{path*}',
+        handler : {
+            file: 'public/index.html'
         }
     });
 

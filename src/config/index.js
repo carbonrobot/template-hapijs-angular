@@ -1,7 +1,6 @@
-﻿'use strict';
+﻿var Path = require('path');
 
 // export server config settings
-// TODO: place each plugin config in its own file and merge
 module.exports = {
     application: {
     	server: {
@@ -11,6 +10,11 @@ module.exports = {
         	{
         		port: process.env.WEB_PORT || 3000,
         		labels: ['web']
+                /*routes: {
+                    files: {
+                        relativeTo: Path.join(__dirname, './public')
+                    }
+                }*/
         	},
             {
                 port: process.env.API_PORT || 3001,
