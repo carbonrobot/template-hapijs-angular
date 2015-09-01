@@ -2,7 +2,7 @@
 
 The following is a template for creating projects with Hapi.js as the REST api and Angular.js as the frontend.
 
-- [Installation](#Installation) and configuration
+- Follow the *getting started* section below and then be sure to read the developer docs.
 - [Developer Docs](/docs)
 
 ## Getting Started
