@@ -9,7 +9,7 @@ module.exports = {
         css: [
             'bower_components/bootstrap/dist/css/bootstrap.css',
             'bower_components/bootstrap/dist/css/bootstrap-theme.css',
-            'src/modules/sample-ui/content/**/*.less'
+            'src/modules/sample-ui/content/**/index.less'
         ],
 
         // html content

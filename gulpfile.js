@@ -15,6 +15,8 @@ var gulp = require('gulp'),
     jasmine = require('gulp-jasmine'),
     runSequence = require('run-sequence'),
     KarmaServer = require('karma').Server,
+    rename = require('gulp-rename'),
+    path = require('path'),
     config = require('./gulpfile.config');
 
 // tasks
@@ -117,7 +119,11 @@ function styles() {
     return gulp.src(config.src.css)
         .pipe(sourcemaps.init())
         .pipe(less())
-        .pipe(concat('styles.css'))
+        .pipe(rename(function(file){
+            var parts = file.dirname.split(path.sep);
+            file.basename = parts[1] || 'styles';
+            file.dirname = '';
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.build.output.css));
 }
