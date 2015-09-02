@@ -3,13 +3,13 @@
 angular.module('app.common').factory('NavigationService', NavigationService);
 
 function NavigationService($state) {
-
-    var links = [];
+    var links;
 
     function getLinks() {
         if (links) {
             return links;
         }
+        links = [];
 
         var states = $state.get();
         states.sort(function(a,b){
@@ -19,16 +19,16 @@ function NavigationService($state) {
         states.forEach(function(state) {
             if (state.url && !state.abstract) {
 
-                var link = createLink(state),
-                    parent = false;
-
+                var link = createLink(state);
                 var expression = state.name.split('-');
-                if (expression.length > 1) {
-                    parent = findLink(expression[0]);
-                }
+                expression.pop();
+
+                var parent = findLink(expression.join('-'));
                 pushLink(link, parent);
             }
         });
+
+        return links;
     }
 
     function createLink(state) {
@@ -39,11 +39,25 @@ function NavigationService($state) {
         };
     }
 
-    function findLink(key) {
+    function findLink(key, parent) {
+        var tree = links;
+        if(parent){
+            tree = parent.subtree;
+        }
+        if(!tree){
+            return false;
+        }
+
         var link = false;
-        links.forEach(function(s) {
+        tree.forEach(function(s) {
             if (s.key === key){
                 link = s;
+            }
+            else{
+                link = findLink(key, s);
+            }
+            if(link){
+                return;
             }
         });
         return link;
