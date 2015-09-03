@@ -17,7 +17,6 @@ describe('navigation service', function () {
         });
 
         inject(function (_$state_, _NavigationService_) {
-            console.log(_$state_);
             service = _NavigationService_;
         });
     });
