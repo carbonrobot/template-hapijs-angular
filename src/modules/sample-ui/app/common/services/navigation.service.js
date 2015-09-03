@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('app.common').factory('NavigationService', NavigationService);
+angular.module('app').factory('NavigationService', NavigationService);
 
 function NavigationService($state) {
     var links;
-
+    
     function getLinks() {
         if (links) {
             return links;
@@ -17,7 +17,7 @@ function NavigationService($state) {
         });
 
         states.forEach(function(state) {
-            if (state.url && !state.abstract) {
+            if (state.url && !state.abstract && !state.excludeFromNav) {
 
                 var link = createLink(state);
                 var expression = state.name.split('-');

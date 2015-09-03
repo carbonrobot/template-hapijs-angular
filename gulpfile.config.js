@@ -41,7 +41,10 @@ module.exports = {
         },
 
         // angular templates
-        templates: 'src/modules/sample-ui/app/**/*.view.html',
+        templates: [
+            'src/modules/sample-ui/app/**/*.view.html',
+            'src/modules/sample-ui/app/**/*.directive.html'   
+        ],
         templateModuleName: 'app.templates'
     },
 

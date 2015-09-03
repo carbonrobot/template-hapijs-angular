@@ -1,0 +1,13 @@
+<li ng-class="{'dropdown': leaf.subtree}">
+	<!-- for leafs without children -->
+	<a href="#{{leaf.link}}" ng-if="!leaf.subtree">{{leaf.name}}</a>	
+
+	<!-- for leafs with children -->
+	<a href="#{{leaf.link}}" 
+		class="dropdown-toggle" 
+		data-toggle="dropdown" 
+		role="button" 
+		aria-haspopup="true" 
+		aria-expanded="false"
+		ng-if="leaf.subtree">{{leaf.name}} <span class="caret"></span></a>
+</li>

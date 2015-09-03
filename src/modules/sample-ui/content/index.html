@@ -12,9 +12,9 @@
 </head>
 
 <body data-ng-app="app">
-    <div class="ng-cloak data-ng-controller="DefaultController as default">
+    <div class="ng-cloak">
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" data-ng-controller="NavigationController as nav">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
@@ -26,11 +26,7 @@
                     <a class="navbar-brand" href="/{{theme.key}}#/">{{theme.title}}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#/about">About</a></li>
-                        <li><a href="#/signup">Signup</a></li>
-                    </ul>
-                    <p class="navbar-text navbar-right">Examples using Angular.js, Hapi.js, Gulp, Node and more...</p>
+                    <data-nav-tree data-tree="nav.tree"></data-nav-tree>
                 </div>
             </div>
         </nav>

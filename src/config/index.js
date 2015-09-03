@@ -1,5 +1,11 @@
 ﻿var Path = require('path');
 
+var internals = {
+    debug: true,
+    dbconnection: 'mongodb://localhost/dev',
+    staticContentPath: '../../public'
+};
+
 // export server config settings
 module.exports = {
     application: {
@@ -12,7 +18,8 @@ module.exports = {
         		labels: ['web'],
                 routes: {
                     files: {
-                        relativeTo: Path.join(__dirname, '../../public')
+                        // serves static content files from this directory
+                        relativeTo: Path.join(__dirname, internals.staticContentPath)
                     }
                 }
         	},
@@ -22,6 +29,7 @@ module.exports = {
                 routes: {
                     validate: {
                         options: {
+                            // ignores unknown json props and doesnt validate them
                             allowUnknown: true
                         }
                     }
@@ -73,7 +81,8 @@ module.exports = {
                             engines: {
                                 html: 'handlebars'
                             },
-                            path: Path.join(__dirname, '../../public')
+                            path: Path.join(__dirname, internals.staticContentPath),
+                            isCached: !internals.debug
                         }
                     }
                 ]
@@ -85,7 +94,7 @@ module.exports = {
                     {
                         select: ['api'],
                         options: {
-    		              database: 'mongodb://localhost/dev'
+    		              database: internals.dbconnection
                         }
                     }
                 ]

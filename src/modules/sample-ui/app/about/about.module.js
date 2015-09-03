@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('app.about', [])
-   .config(config);
+angular.module('app.about', []).config(config);
 
 /**
  * Configures the about module routing

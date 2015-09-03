@@ -9,6 +9,7 @@ function config($stateProvider) {
     $stateProvider
         .state('default', {
         	url: '/',
-            templateUrl: 'default/views/default.view.html'
+            templateUrl: 'default/views/default.view.html',
+			excludeFromNav: true
         });
 }

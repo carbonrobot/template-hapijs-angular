@@ -58,7 +58,7 @@ gulp.task('test:ui', function(done){
 });
 
 // components
-gulp.task('bower', bower);
+gulp.task('bower', downloadBower);
 gulp.task('clean', clean);
 gulp.task('content', content);
 gulp.task('fonts', fonts);
@@ -70,7 +70,7 @@ gulp.task('templates', templates);
 gulp.task('vendor', vendor);
 gulp.task('watch', watch);
 
-function bower(done){
+function downloadBower(done){
     return bower();
 }
 

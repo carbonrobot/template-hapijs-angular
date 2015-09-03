@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('app.common').controller('NavigationController', NavigationController);
+angular.module('app').controller('NavigationController', NavigationController);
 
-function NavigationController(NavigationService) {
-    var vm = this;
-    vm.tree = NavigationService.getLinks();
+function NavigationController(NavigationService){
+	var vm = this;
+
+	// props
+	vm.tree = NavigationService.getLinks();
 }
