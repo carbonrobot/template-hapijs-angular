@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').factory('NavigationService', NavigationService);
+angular.module('app.common').factory('NavigationService', NavigationService);
 
 function NavigationService($state) {
     var links;

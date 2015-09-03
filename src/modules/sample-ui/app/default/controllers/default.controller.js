@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').controller('DefaultController', DefaultController);
+angular.module('app.default').controller('DefaultController', DefaultController);
 
 /**
  * Handles the layout for the application

@@ -1,23 +1,20 @@
 'use strict';
 
-describe('app', function() {
+describe('default controller', function() {
 
 	var scope, controller;
 
 	beforeEach(module('app'));
-
 	beforeEach(inject(function($controller, $rootScope) {
 	     scope = $rootScope.$new();
 	     controller = $controller('DefaultController', {
-	          $scope: scope
+	          $scope: scope,
+			  theme: {}
 	     });
 	}));
 
-	describe('default controller', function(){
-
-		it('should be ...', function(){
-			expect(controller).not.toBe(null);
-		});
-
+	it('should have a theme', function(){
+		expect(controller.theme).not.toBe(null);
 	});
+
 });
