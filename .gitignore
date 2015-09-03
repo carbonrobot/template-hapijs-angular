@@ -17,5 +17,6 @@ bower_components
 *.csproj
 *.sln
 *.GhostDoc.xml
+.settings
 bin
 obj
