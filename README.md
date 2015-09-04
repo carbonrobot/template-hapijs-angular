@@ -9,9 +9,9 @@ The following is a template for creating projects with Hapi.js as the REST api a
 
 The following software must be installed for this template
 
-- [Download & Install](http://www.nodejs.org/download) Node.js and the npm package manager. If you encounter any problems, you can also use this Github Gist to install Node.js.
+- [Download & Install](http://www.nodejs.org/download) Node.js and the npm package manager. After installation, run the following command to install the packages for this project.
 
-- [Download & Install](http://www.mongodb.org/downloads) MongoDB and make sure it's running.
+		$ npm install
 
 - Install the [Bower Package Manager](http://bower.io/) using npm to manage frontend packages.
 
@@ -24,6 +24,13 @@ The following software must be installed for this template
 - Install the [Karma](http://karma-runner.github.io/0.13/index.html) test runner for automated javascript testing
 
 		$ npm install -g karma-cli
+		
+- (optional) Install the [Typescript]() definition manager for intellisense in your code editor, then run `tsd install` to download the definitions for this project.
+
+		$ npm install -g tsd
+		$ tsd install
+
+- (optional) [Download & Install](http://www.mongodb.org/downloads) MongoDB and make sure it's running. Or edit the config.json file to connect to an existing server.
 
 ##  Running the Application
 

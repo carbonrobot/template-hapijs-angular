@@ -4,7 +4,7 @@ describe('default controller', function() {
 
 	var scope, controller;
 
-	beforeEach(module('app'));
+	beforeEach(angular.mock.module('app'));
 	beforeEach(inject(function($controller, $rootScope) {
 	     scope = $rootScope.$new();
 	     controller = $controller('DefaultController', {

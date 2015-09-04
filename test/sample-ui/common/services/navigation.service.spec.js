@@ -5,8 +5,8 @@ describe('navigation service', function () {
     var service, routes;
 
     beforeEach(function () {
-        module('app.common');
-        module(function ($provide) {
+        angular.mock.module('app.common');
+        angular.mock.module(function ($provide) {
             $provide.factory('$state', function () {
                 return {
                     get: function () {

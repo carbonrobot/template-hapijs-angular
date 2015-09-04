@@ -9,6 +9,9 @@ node_modules
 # bower directory
 bower_components
 
+# typescript definitions
+typings
+
 # various ide's
 .idea
 *.sublime-*
