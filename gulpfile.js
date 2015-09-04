@@ -25,7 +25,7 @@ gulp.task('serve', function(done){
     runSequence(
         'bower',
         'clean',
-        ['vendor', 'styles', 'templates', 'scripts', 'images', 'content'], 
+        ['jsApp', 'jsSingle', 'jsVendor', 'styles', 'templates', 'images', 'content'], 
         'watch',
         'run',
         done);
@@ -35,7 +35,7 @@ gulp.task('build', function(done){
     runSequence(
         'bower',
         'clean',
-        ['vendor', 'styles', 'templates', 'scripts', 'images', 'content'], 
+        ['jsApp', 'jsSingle', 'jsVendor', 'styles', 'templates', 'images', 'content'], 
         done);
 });
 
@@ -63,11 +63,12 @@ gulp.task('clean', clean);
 gulp.task('content', content);
 gulp.task('fonts', fonts);
 gulp.task('images', images);
+gulp.task('jsApp', jsApp);
+gulp.task('jsSingle', jsSingle);
+gulp.task('jsVendor', jsVendor);
 gulp.task('run', run);
-gulp.task('scripts', scripts);
 gulp.task('styles', ['fonts'], styles);
 gulp.task('templates', templates);
-gulp.task('vendor', vendor);
 gulp.task('watch', watch);
 
 function downloadBower(done){
@@ -93,16 +94,7 @@ function images() {
     .pipe(gulp.dest(config.build.output.content));
 }
 
-function run(){
-    nodemon({ 
-        script: 'index.js',
-        ext: 'js',
-        ignore: ['public/*'],
-        env: {NODE_ENV: 'development', DEBUG: true}
-    });
-}
-
-function scripts() {
+function jsApp() {
     return gulp.src(config.src.js.app)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
@@ -113,6 +105,27 @@ function scripts() {
         .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.build.output.js));
+}
+
+function jsSingle() {
+    return gulp.src(config.src.js.single)
+        .pipe(gulp.dest(config.build.output.js));
+}
+
+function jsVendor() {
+    return gulp.src(config.src.js.vendor)
+        .pipe(concat('vendor.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(config.build.output.js));
+}
+
+function run(){
+    nodemon({ 
+        script: 'index.js',
+        ext: 'js',
+        ignore: ['public/*'],
+        env: {NODE_ENV: 'development', DEBUG: true}
+    });
 }
 
 function styles() {
@@ -136,13 +149,6 @@ function styles() {
 function templates() {
     return gulp.src(config.src.templates)
         .pipe(templateCache({ module: config.src.templateModuleName }))
-        .pipe(gulp.dest(config.build.output.js));
-}
-
-function vendor() {
-    return gulp.src(config.src.js.vendor)
-        .pipe(concat('vendor.min.js'))
-        .pipe(uglify())
         .pipe(gulp.dest(config.build.output.js));
 }
 

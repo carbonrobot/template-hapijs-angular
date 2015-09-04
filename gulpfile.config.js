@@ -32,6 +32,12 @@ module.exports = {
                 'bower_components/bootstrap/dist/js/bootstrap.js',
                 'bower_components/lodash/lodash.js'
             ],
+            
+            // vendor files that are downloaded individually by the browser
+            // we keep these separate to reduce the size of the main js file
+            single: [
+              'bower_components/highcharts/highcharts.js'  
+            ],
 
             // application files are separate, because they get linted
             app: [
